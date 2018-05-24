@@ -3,7 +3,7 @@ import setuptools
 # import cnradical
 
 LICENSE = "License :: OSI Approved :: Apache Software License"
-VERSION = "0.0.4"
+VERSION = "0.1.0"
 setuptools.setup(
     name='cnradical',
     version=VERSION,
@@ -13,7 +13,10 @@ setuptools.setup(
     license=LICENSE,
     install_requires=["six"],
     url='https://github.com/wangchuan2008888/cn-radical',
-    packages=['cnradical'],
+    packages=setuptools.find_packages(),
+    package_data={
+        'cnradical': ['data/*.pickle'],
+    },
     classifiers=['Topic :: Text Processing :: Linguistic',
                  'Environment :: Console',
                  'Intended Audience :: Developers',
