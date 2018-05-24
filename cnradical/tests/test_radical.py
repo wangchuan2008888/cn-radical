@@ -34,3 +34,8 @@ class TestRadical(TestCase):
         trans = Radical('radical')
         rslt = trans.trans('好')
         self.assertEqual(rslt, '女')
+
+    def test_pinyin(self):
+        trans = Radical('pinyin')
+        rslt = trans.trans('好')
+        self.assertEqual(rslt, 'hǎo')
