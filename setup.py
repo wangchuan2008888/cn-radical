@@ -1,8 +1,8 @@
 from setuptools import setup
-import cnradical
+# import cnradical
 
-LICENSE = cnradical.__license__
-VERSION = cnradical.__version__
+LICENSE = "License :: OSI Approved :: Apache Software License"
+VERSION = "0.0.2"
 setup(
     name='cnradical',
     version=VERSION,
@@ -16,7 +16,12 @@ setup(
                  'Development Status :: 5 - Production/Stable',
                  'Operating System :: OS Independent',
                  'Programming Language :: Python',
-                 'License :: OSI Approved :: Apache License Version 2.0',
+                 "License :: OSI Approved :: Apache Software License",
                  'Natural Language :: Chinese (Simplified)',
+                 "Programming Language :: Python :: 3",
+                 "Programming Language :: Python :: 3.4",
+                 "Programming Language :: Python :: 3.5",
+                 "Programming Language :: Python :: 3.6",
+                 "Programming Language :: Python :: 3.7",
                  ]
 )
