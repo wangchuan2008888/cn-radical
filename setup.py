@@ -1,14 +1,19 @@
-from setuptools import setup
+import setuptools
+
 # import cnradical
 
 LICENSE = "License :: OSI Approved :: Apache Software License"
-VERSION = "0.0.2"
-setup(
+VERSION = "0.0.4"
+setuptools.setup(
     name='cnradical',
     version=VERSION,
+    author="Andrew Wang",
+    author_email="wangchuan2008888@gmail.com",
     description='tools for get chinese radical and pinyin',
     license=LICENSE,
     install_requires=["six"],
+    url='https://github.com/wangchuan2008888/cn-radical',
+    package_dir={'cnradical': 'cnradical'},
     classifiers=['Topic :: Text Processing :: Linguistic',
                  'Environment :: Console',
                  'Intended Audience :: Developers',
