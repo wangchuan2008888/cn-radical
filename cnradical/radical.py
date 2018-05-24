@@ -4,12 +4,12 @@ import six
 from enum import Enum
 
 
-class DictOption(Enum):
+class RunOption(Enum):
     Radical = 1
     Pinyin = 2
 
 
-all_option = list(DictOption)
+all_option = list(RunOption)
 
 
 class Radical(object):
@@ -20,7 +20,7 @@ class Radical(object):
         self.dictionary_file_name = os.path.join(self._dict_dir, self._dictionary_file_name)
         self.diction = None
         if options is None:
-            options = DictOption.Radical
+            options = RunOption.Radical
         self.options = self._format_options(options)
 
     @staticmethod
@@ -34,7 +34,7 @@ class Radical(object):
                 rslt.append(option)
                 continue
             if isinstance(option, six.string_types) and option.lower() in all_option_name:
-                rslt.append(DictOption[option.capitalize()])
+                rslt.append(RunOption[option.capitalize()])
         return rslt
 
     def get_dict(self):
@@ -53,7 +53,7 @@ class Radical(object):
             self.diction = self.get_dict()
         rslt = []
         for op in self.options:
-            rslt.append(self.diction[op.name.lower()][ch])
+            rslt.append(self.diction[op.name.lower()].get(ch))
         if len(rslt) == 1:
             rslt = rslt[0]
         return rslt
