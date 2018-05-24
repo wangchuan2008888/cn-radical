@@ -48,12 +48,40 @@ class Radical(object):
                 del dictionray[op.name.lower()]
         return dictionray
 
-    def trans(self, ch=''):
+    def trans_ch(self, ch=''):
+        """
+        :param ch:待转换的单个字符
+        :return: 转换的字符
+        """
         if self.diction is None:
             self.diction = self.get_dict()
+        if len(ch) > 1:
+            raise Exception('this function used to transform single character. see trans_str')
         rslt = []
         for op in self.options:
             rslt.append(self.diction[op.name.lower()].get(ch))
         if len(rslt) == 1:
             rslt = rslt[0]
         return rslt
+
+    def trans_str(self, _str=''):
+        """
+        :param _str:待转化的字符串
+        :return: 转化后的字符串
+        """
+        if self.diction is None:
+            self.diction = self.get_dict()
+        rslt = []
+        for op in self.options:
+            join_str = self._get_join_str(op)
+            rslt.append(join_str.join([self.diction[op.name.lower()].get(ch, ch) for ch in _str]))
+        if len(rslt) == 1:
+            rslt = rslt[0]
+        return rslt
+
+    @staticmethod
+    def _get_join_str(op):
+        if op == RunOption.Pinyin:
+            return ' '
+        else:
+            return ''
