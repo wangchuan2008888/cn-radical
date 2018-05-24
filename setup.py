@@ -13,7 +13,7 @@ setuptools.setup(
     license=LICENSE,
     install_requires=["six"],
     url='https://github.com/wangchuan2008888/cn-radical',
-    package_dir={'cnradical': 'cnradical'},
+    packages=['cnradical'],
     classifiers=['Topic :: Text Processing :: Linguistic',
                  'Environment :: Console',
                  'Intended Audience :: Developers',
